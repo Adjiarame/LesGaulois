@@ -22,9 +22,10 @@ public class Personnage {
     }
 
     public void frapper(Personnage adversaire) {
-        System.out.println("Le " + donnerAuteur() + " " + nom + " donne un grand coup au " + adversaire.donnerAuteur() + " " + adversaire.getNom() + ".");
-        int forceCoup = this.force / 3;
-        adversaire.recevoirCoup(forceCoup);
+        int forceFrappe = this.force / 2; // Calcul de la force de frappe mm chose
+        System.out.println("Le " + donnerAuteur() + " " + nom + " donne un coup de force " + forceFrappe + " au " + adversaire.donnerAuteur() + " " + adversaire.getNom() + ".");
+     
+        adversaire.recevoirCoup(forceFrappe);
     }
 
     public void recevoirCoup(int forceCoup) {

@@ -10,15 +10,15 @@ public class Romain extends Personnage {
         return "Romain";
     }
 
-    public void frapper(Gaulois asterix) {
-        System.out.println("Le Romain " + nom + " donne un grand coup au " + asterix + " " + asterix + ".");
-        int forceCoup = this.force / 3;
-        asterix(forceCoup);
+    public void frapper(Gaulois gaulois) {
+        int forceFrappe = this.force / 3; // Calcul de la force de frappe
+        System.out.println("Le romain " + this.nom + " donne un coup de force " + forceFrappe + " au gaulois " + gaulois.getNom() + ".");
+        gaulois.recevoirCoup(forceFrappe);
     }
 
-	private void asterix(int forceCoup) {
+	public Object getGrade() {
 		// TODO Auto-generated method stub
-		
+		return null;
 	}
 }
 
