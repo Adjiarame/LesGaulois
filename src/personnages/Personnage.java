@@ -1,42 +1,51 @@
 package personnages;
+public abstract class Personnage {
+	
+	public String nom; 
+	public int force; 
+	
+	public Personnage(String nom, int force) {
+		this.nom = nom;
+		this.force = force;
+	}
+	
+	public String getNom() {
+		return nom;
+	}
+	
+	public void parler(String chaine) {
+		System.out.println("Le " + donnerAuteur()+ nom + " : \"" + chaine + "\".");
+	}
 
-public class Personnage {
-    protected String nom;
-    protected int force;
+	public abstract String donnerAuteur(); 
 
-    public Personnage(String nom, int force) {
-        this.nom = nom;
-        this.force = force;
-    }
 
-    public String getNom() {
-        return nom;
-    }
+	public double calculForce(double force) {
+		return force = force/3;
+	}
 
-    public void parler(String texte) {
-        System.out.println("Le " + donnerAuteur() + " " + nom + " : \"" + texte + "\".");
-    }
+	public void frapper(Personnage adversaire) {
+		System.out.println("Le " + donnerAuteur() + nom + " donne un grand coup au " + adversaire.donnerAuteur() + adversaire.getNom());
+		adversaire.recevoirCoup(calculForce(force)); 
+	}
 
-    public String donnerAuteur() {
-        return "Personnage";
-    }
-
-    public void frapper(Personnage adversaire) {
-        int forceFrappe = this.force / 2; // Calcul de la force de frappe mm chose
-        System.out.println("Le " + donnerAuteur() + " " + nom + " donne un coup de force " + forceFrappe + " au " + adversaire.donnerAuteur() + " " + adversaire.getNom() + ".");
-     
-        adversaire.recevoirCoup(forceFrappe);
-    }
-
-    public void recevoirCoup(int forceCoup) {
-        this.force -= forceCoup;
-        if (this.force < 0) {
-            this.force = 0;
-        }
-        if (this.force > 0) {
-            System.out.println("Aïe !");
-        } else {
-            System.out.println("J'abandonne...");
-        }
-    }
+	public double calculForceCoup(double forceCoup) {
+		return force = (int) (force - forceCoup);
+	}
+	public void recevoirCoup(double forceCoup) {
+		//force = (int) (force - forceCoup); 
+		double force = calculForceCoup(forceCoup); 
+		if (force <= 0) {
+			force = 0; 
+			System.out.println("Le " + donnerAuteur() + nom + " : " + "J'abandonne");
+		}
+		else {
+			System.out.println("Le " + donnerAuteur() + nom + " : " + "Aie ! ");
+		}
+	}
+	
+	public boolean estATerre() {
+	    return this.force <= 0;
+	}
+	
 }

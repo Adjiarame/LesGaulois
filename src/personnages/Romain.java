@@ -1,24 +1,52 @@
 package personnages;
 
 public class Romain extends Personnage {
-    public Romain(String nom, int force) {
-        super(nom, force);
-    }
 
-    @Override
-    public String donnerAuteur() {
-        return "Romain";
-    }
-
-    public void frapper(Gaulois gaulois) {
-        int forceFrappe = this.force / 3; // Calcul de la force de frappe
-        System.out.println("Le romain " + this.nom + " donne un coup de force " + forceFrappe + " au gaulois " + gaulois.getNom() + ".");
-        gaulois.recevoirCoup(forceFrappe);
-    }
-
+	public Romain(String nom, int force) {
+		super(nom, force); 
+	}
+	@Override
+	public String donnerAuteur() {
+		return "romain "; 
+	}
 	public Object getGrade() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-}
 
+
+
+/*package personnages;
+public class Romain extends personnage{
+	private String nom; 
+	private int force; 
+	
+	public Romain(String nom, int force) {
+		this.nom = nom; 
+		this.force = force; 
+	}
+	
+	public String getNom() {
+		return nom; 
+	}
+	
+	public void parler(String chaine) {
+		System.out.println("Le romain " + nom + " : \"" + chaine + "\".");
+	}
+	
+	public String recevoirCoup(int forceCoup) {
+		force = force - forceCoup; 
+		if (force <= 0) {
+			force = 0; 
+			return "J'abandonne";
+		}
+		else {
+			return "Aie ! ";
+		}
+		return "romain ";
+	}
+
+}
+*/
+}
+	

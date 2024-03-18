@@ -1,11 +1,62 @@
 package test_fonctionnel;
 
 import personnages.Druide;
+import personnages.Gaulois;
+import personnages.Soldat;
+import personnages.Grade;
+
 
 public class TestGaulois {
-    public static void main(String[] args) {
-        Druide panoramix = new Druide("Panoramix");
-        panoramix.fabriquerPotionMagique();
-    }
-}
+	public static void main(String[] args) {
+		/*
+		Gaulois asterix = new Gaulois("Astérix", 8);
+		//System.out.println(asterix);
+		//System.out.println(asterix.getNom());
+		asterix.parler("Bonjour à tous");
+		Romain minus = new Romain("Minus", 6);
+		minus.parler(" UN GAU...UN GAUGAU...");
+		for (int i = 0; i < 3; i++) {
+			asterix.frapper(minus);
+			minus.frapper(asterix);
+		}
+		
+		asterix.frapper(minus);
+*/
+		//CrÃ©ation des gaulois
+		Gaulois agecanomix = new Gaulois("Agecanomix", 1);
+		Gaulois abraracourcix = new Gaulois("Abraracourcix", 2);
+		Gaulois assurancetourix = new Gaulois("Assurancetourix", 5);
+		Gaulois asterix = new Gaulois("Astérix", 5);
+		Gaulois obelix = new Gaulois("Obelix", 15);
+		
+		Soldat minus = new Soldat("Minus", 6, Grade.CENTURION);
+		// Équiper Minus avec un casque, un plastron et un bouclier
+        minus.equiperCasque();
+        minus.equiperPlastron();
+        minus.equiperBouclier();
+
+       /* minus.parler("s'équipe avec un casque.");
+        minus.parler("s'équipe avec un plastron.");
+        minus.parler("s'équipe avec un bouclier.");
+*/
+        Druide panoramix = new Druide("Panoramix", 0);
+
+	  	panoramix.fabriquerPotion(3);
+	  	panoramix.donnerPotion(asterix);
+	  	panoramix.donnerPotion(obelix);
+	  	panoramix.donnerPotion(assurancetourix);
+	  	panoramix.donnerPotion(abraracourcix);
+	  	panoramix.donnerPotion(agecanomix);
+	  	
+	  	asterix.parler("Bonjour a tous");
+
+
+	  	minus.parler("UN GAU... UN GAUGAU...");
+
+
+		//for (int i = 0; i < 3; i++) {
+			asterix.frapper(minus);
+			//minus.frapper(asterix);
+	}
+	}
 
